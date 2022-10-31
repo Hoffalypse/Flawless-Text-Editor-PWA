@@ -8,6 +8,7 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 // TODO: Add CSS loaders and babel to webpack.
 
 module.exports = () => {
+  
   return {
     mode: 'development',
     entry: {
@@ -21,10 +22,36 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'Webpack Plugin',
+       
       }),
+    //added service worker and manfest file 
     
-      
+    new WebpackPwaManifest({
+      name: 'JATE',
+      short_name: 'JATE',
+      description: 'PWA Text Editor',
+      display: 'standalone',
+      background_color: 'blue',
+      theme_color: 'blue',
+      start_url: '/',
+      publicPath: '/',
+      fingerprints: false,
+      inject: true,
+      icons: [
+        {
+          src: path.resolve('src/images/logo.png'),
+          sizes: [96, 128, 192, 256, 384, 512],
+          destination: path.join('assets', 'icons'),
+
+          
+        },
+      ],
+    }),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'service-worker.js',
+      }), 
+    
     ],
 
     module: {
@@ -33,22 +60,26 @@ module.exports = () => {
           test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
         },
-        {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: 'asset/resource',
-        },
+        // {
+        //   test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        //   type: 'asset/resource',
+        // },
         {
           test: /\.m?js$/,
-          exclude: /(node_modules|bower_components)/,
+          exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-proposal-object-rest-spread',
+              '@babel/transform-runtime',],
             },
           },
         },
         
       ],
     },
+   
   };
+  
 };
