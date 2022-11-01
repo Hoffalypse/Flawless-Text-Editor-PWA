@@ -12,7 +12,7 @@ This app is Progressive Web App that creates a single page application that will
 
 ## Installation
 This app is intalled in the Heroku cloud. Try it out at the following link  
-https://stormy-mesa-72944.herokuapp.com/
+https://flawless-text-editor-pwa.herokuapp.com/
 
 ## Usage 
 Upon reaching the site you will see the text editor page. All data that is input into the page will be saved to the client when you leave. The manifest is built upon starting. User can open dev tools and see that as information is added to the scrren it is saved locally into the IndexedDB instantly. 
