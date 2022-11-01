@@ -18,6 +18,7 @@ module.exports = () => {
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
+      publicPath:""
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -31,10 +32,8 @@ module.exports = () => {
       short_name: 'JATE',
       description: 'PWA Text Editor',
       display: 'standalone',
-      background_color: 'blue',
-      theme_color: 'blue',
-      start_url: '/',
-      publicPath: '/',
+      start_url: './',
+      publicPath: './',
       fingerprints: false,
       inject: true,
       icons: [
@@ -49,7 +48,7 @@ module.exports = () => {
     }),
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: 'service-worker.js',
+        swDest: 'created-sw.js',
       }), 
     
     ],
@@ -83,3 +82,5 @@ module.exports = () => {
   };
   
 };
+
+
