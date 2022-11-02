@@ -47,10 +47,10 @@ module.exports = () => {
       ],
     }),
     new MiniCssExtractPlugin(),
-
+    //creates manifest to dist folder
       new InjectManifest({
         swSrc: './src-sw.js',
-        // swDest: 'src-sw.js',
+       
       }), 
     
     ],

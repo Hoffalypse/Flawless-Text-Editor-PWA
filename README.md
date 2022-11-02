@@ -1,5 +1,5 @@
 # Flawless Text Editor PWA
-This app is Progressive Web App that creates a single page application that will work offline if user has no internet connection. 
+This app is Progressive Web Application text editor that creates a single page application that will work offline if user has no internet connection after a single use. 
 
 
 ## Table of Contents
@@ -15,7 +15,7 @@ This app is intalled in the Heroku cloud. Try it out at the following link
 https://flawless-text-editor-pwa.herokuapp.com/
 
 ## Usage 
-Upon reaching the site you will see the text editor page. All data that is input into the page will be saved to the client when you leave. The manifest is built upon starting. User can open dev tools and see that as information is added to the scrren it is saved locally into the IndexedDB instantly. 
+Upon reaching the site you will see the text editor page. All data that is input into the page will be saved to the client when the user leaves. The manifest is built upon starting. User can open dev tools and see that as information is added to the screen it is saved locally into the IndexedDB instantly.To view the IndexedDB open inspect on the browser and go to the applications tab. User can also find the manifest and installed service worker from there.  
 
 <p align ="center">
 <img src = "./Assets/jate-screen.jpg" alt = "homepage">
